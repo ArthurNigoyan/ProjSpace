@@ -1,6 +1,18 @@
 #include <iostream>
 #include <stdlib.h>
-
+int matrix_size_is()
+{
+	int size_of_matrix;
+	do 
+	{
+		std::cout<<"Enter size of matrix: ";
+		std::cin>>size_of_matrix;
+		
+	}
+	while (size_of_matrix<4);
+	
+	return size_of_matrix;
+}
 class MATRIX
 {
 	private:
@@ -12,7 +24,14 @@ class MATRIX
 	MATRIX();
 	MATRIX(int size)
 	{
-		size_of_matrix=size;
+		if (size<4)
+		{
+			size_of_matrix=matrix_size_is();
+		} else
+		{
+			size_of_matrix=size;
+		}
+		
 		ptr = new int*[size_of_matrix];
 		for (int i = 0; i< size_of_matrix;i++)
 		{
@@ -87,19 +106,7 @@ class MATRIX
 		}			
 	}
 };
-int matrix_size_is()
-{
-	int size_of_matrix;
-	do 
-	{
-		std::cout<<"Enter size of matrix: ";
-		std::cin>>size_of_matrix;
-		
-	}
-	while (size_of_matrix<4);
-	
-	return size_of_matrix;
-}
+
 int main()
 {
 	int size_of_matrix;
