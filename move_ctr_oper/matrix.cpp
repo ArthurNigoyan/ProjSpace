@@ -94,18 +94,8 @@ class MATRIX
 	MATRIX(MATRIX&& obj)
 	{
 		this->size_of_matrix=obj.size_of_matrix;
-		this->ptr=new int*[this->size_of_matrix];
-		for (int i = 0; i< obj.size_of_matrix;i++)
-		{
-			this->ptr[i] = new int[obj.size_of_matrix];
-		}
-		for(int i=0; i<obj.size_of_matrix;i++)
-		{
-			for(int j=0; j<obj.size_of_matrix;j++)
-			{
-				this->ptr[i][j]=obj.ptr[i][j];
-			}
-		}
+		this->ptr=obj.ptr;
+		
 		for (int i = 0; i< obj.size_of_matrix;i++)
 		{
 			obj.ptr[i] = nullptr;
@@ -127,18 +117,7 @@ class MATRIX
 		}
 		delete []ptr;
 		this->size_of_matrix=obj.size_of_matrix;
-		this->ptr=new int*[this->size_of_matrix];
-		for (int i = 0; i< obj.size_of_matrix;i++)
-		{
-			this->ptr[i] = new int[obj.size_of_matrix];
-		}
-		for(int i=0; i<obj.size_of_matrix;i++)
-		{
-			for(int j=0; j<obj.size_of_matrix;j++)
-			{
-				this->ptr[i][j]=obj.ptr[i][j];
-			}
-		}
+		this->ptr=obj.ptr;
 		for (int i = 0; i< obj.size_of_matrix;i++)
 		{
 			obj.ptr[i] = nullptr;

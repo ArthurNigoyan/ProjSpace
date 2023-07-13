@@ -54,11 +54,8 @@ class ANIMAL
 			this->m_weight=obj.m_weight;
 			this->m_sum_of_weights=obj.m_sum_of_weights;
 			this->m_size=obj.m_size;
-			this->m_ptr=new int[this->m_size];
-			for (int i = 0; i< obj.m_size;i++)
-			{
-				this->m_ptr[i] = obj.m_ptr[i];
-			}
+			this->m_ptr = obj.m_ptr;
+			
 			obj.m_ptr=nullptr;
 			obj.m_size=0;
 			obj.m_weight=0;
@@ -74,10 +71,7 @@ class ANIMAL
 			delete []this->m_ptr;
 			this->m_ptr=obj.m_ptr;
 			this->m_size=obj.m_size;
-			for (int i = 0; i< obj.m_size;i++)
-			{
-				this->m_ptr[i] = obj.m_ptr[i];
-			}
+			
 			obj.m_ptr=nullptr;
 			obj.m_size=0;
 			this->m_weight=obj.m_weight;
