@@ -1,19 +1,21 @@
 #include <iostream>
 
-template <typename T>
-T factorial(T n)
+template <unsigned int n>
+struct Factorial
 {
-	if (n<2) {
-		return 1;
-	}
-	return n*factorial(n-1);
-}
-
+	enum { value = n * Factorial<n - 1>::value };
+};
+template <>
+struct Factorial<0>
+{
+	enum { value = 1 };
+};
 
 
 int main()
 {
-	std::cout<<factorial(3)<<std::endl;;
+	std::cout<<Factorial<3>::value<<std::endl;
+	std::cout<<Factorial<0>::value<<std::endl;
 	
 	return 0;
 }
